@@ -10,7 +10,12 @@ EXPOSE 8000
 
 RUN python -m venv /venv && \
     /venv/bin/pip install --upgrade pip && \
-    /venv/bin/pip install -r /temp/requirements.txt
-
+    /venv/bin/pip install -r /temp/requirements.txt && \
+    adduser \
+        --disabled-password \
+        --no-create-home \
+        django-user
 
 ENV PATH="/venv/bin:$PATH"
+
+USER django-user
