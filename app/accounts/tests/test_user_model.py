@@ -2,7 +2,6 @@
 Tests for User model
 """
 from django.test import TestCase
-from accounts.models import User
 from django.contrib.auth import get_user_model
 
 
@@ -51,7 +50,3 @@ class TestUserModel(TestCase):
                 password="test@123",
                 is_superuser=False
             )
-
-
-
-
