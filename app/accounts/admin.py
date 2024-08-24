@@ -2,7 +2,7 @@
 Django admin customization.
 """
 from django.contrib import admin
-from accounts.models import User
+from accounts.models import User, Profile
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
@@ -33,3 +33,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(User, UserAdmin)
+admin.site.register(Profile)
