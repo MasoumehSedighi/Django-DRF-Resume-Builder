@@ -11,7 +11,7 @@ from resume.api import views
 
 
 router = DefaultRouter()
-router.register('skill', views.SkillViewSet)
+router.register('skills', views.SkillViewSet)
 
 
 app_name = 'resume'
