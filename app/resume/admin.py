@@ -6,3 +6,4 @@ from resume import models
 admin.site.register(models.Skill)
 admin.site.register(models.Education)
 admin.site.register(models.Certificate)
+admin.site.register(models.Experience)
