@@ -8,9 +8,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 from resume.api import serializers
-from resume.models import (
-    Skill,
-)
+from resume.models import Skill
 
 
 def detail_url(skill_id):
