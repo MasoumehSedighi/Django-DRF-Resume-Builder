@@ -1,6 +1,7 @@
 """
 Serializers for resume APIs.
 """
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from resume.models import (
     Skill,
@@ -8,6 +9,7 @@ from resume.models import (
     Certificate,
     Experience
 )
+from accounts.api.serializers import ProfileSerializer
 
 
 class SkillSerializer(serializers.ModelSerializer):
@@ -75,3 +77,22 @@ class ExperienceSerializer(serializers.ModelSerializer):
             )
 
         return data
+
+
+class ResumeSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()
+    skills = SkillSerializer(many=True)
+    educations = EducationSerializer(many=True)
+    certificates = CertificateSerializer(many=True)
+    experiences = ExperienceSerializer(many=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = [
+            'profile',
+            'email',
+            'skills',
+            'educations',
+            'certificates',
+            'experiences'
+        ]

@@ -15,6 +15,7 @@ router.register('skills', views.SkillViewSet)
 router.register('educations', views.EducationViewSet)
 router.register('certificates', views.CertificateViewSet)
 router.register('experiences', views.ExperienceViewSet)
+router.register('', views.ResumeAPIView, basename='resume')
 
 app_name = 'resume'
 

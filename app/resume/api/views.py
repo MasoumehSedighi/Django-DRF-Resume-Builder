@@ -1,7 +1,7 @@
 """
 Views for the resume APIs.
 """
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from resume.api import serializers
@@ -75,3 +75,15 @@ class ExperienceViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         return serializer.save(user=self.request.user)
+
+
+class ResumeAPIView(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    API view to retrieving all resume-related data for the authenticated user.
+    """
+    serializer_class = serializers.ResumeSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
