@@ -65,7 +65,6 @@ class ResumeAPITests(TestCase):
         self.client.force_authenticate(user=self.user)
         res = self.client.get(self.url)
 
-        print(res.data)
         self.assertEqual(res.data['email'], self.user.email)
         self.assertEqual(len(res.data['skills']), 1)
         self.assertEqual(len(res.data['educations']), 1)

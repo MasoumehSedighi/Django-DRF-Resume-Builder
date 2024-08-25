@@ -27,7 +27,12 @@ class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
         fields = [
-            'id', 'user', 'institution', 'degree', 'start_date', 'end_date'
+            'id',
+            'user',
+            'institution',
+            'degree',
+            'start_date',
+            'end_date'
         ]
         read_only_fields = ['id', 'user']
 
@@ -47,20 +52,32 @@ class EducationSerializer(serializers.ModelSerializer):
 
 
 class CertificateSerializer(serializers.ModelSerializer):
+    """Serializer for Certificate"""
+
     class Meta:
         model = Certificate
         fields = [
-            'id', 'user', 'title', 'issuing_organization', 'issue_date'
+            'id',
+            'user',
+            'title',
+            'issuing_organization',
+            'issue_date'
         ]
         read_only_fields = ['id', 'user']
 
 
 class ExperienceSerializer(serializers.ModelSerializer):
+    """Serializer for Experience"""
     class Meta:
         model = Experience
         fields = [
-            'id', 'user', 'company', 'position',
-            'description', 'start_date', 'end_date'
+            'id',
+            'user',
+            'company',
+            'position',
+            'description',
+            'start_date',
+            'end_date'
         ]
         read_only_fields = ['id', 'user']
 
@@ -80,6 +97,8 @@ class ExperienceSerializer(serializers.ModelSerializer):
 
 
 class ResumeSerializer(serializers.ModelSerializer):
+    """Serializer for all Resume"""
+
     profile = ProfileSerializer()
     skills = SkillSerializer(many=True)
     educations = EducationSerializer(many=True)
