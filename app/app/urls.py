@@ -33,6 +33,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("accounts.urls")),
+    path('resume/', include('resume.api.urls')),
 
     # api doc app
     path('swagger/api.json', schema_view.without_ui(
