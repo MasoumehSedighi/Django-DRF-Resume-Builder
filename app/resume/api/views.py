@@ -7,7 +7,8 @@ from rest_framework.permissions import IsAuthenticated
 from resume.api import serializers
 from resume.models import (
     Skill,
-    Education
+    Education,
+    Certificate
 )
 
 
@@ -37,6 +38,22 @@ class EducationViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         """Retrieve the educations for the authenticated user"""
+        return self.queryset.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        return serializer.save(user=self.request.user)
+
+
+class CertificateViewSet(viewsets.ModelViewSet):
+    """view for manage certificate APIs."""
+
+    serializer_class = serializers.CertificateSerializer
+    queryset = Certificate.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """Retrieve the certificates for the authenticated user"""
         return self.queryset.filter(user=self.request.user)
 
     def perform_create(self, serializer):

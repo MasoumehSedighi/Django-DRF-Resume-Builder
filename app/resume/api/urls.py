@@ -13,6 +13,7 @@ from resume.api import views
 router = DefaultRouter()
 router.register('skills', views.SkillViewSet)
 router.register('educations', views.EducationViewSet)
+router.register('certificates', views.CertificateViewSet)
 
 
 app_name = 'resume'

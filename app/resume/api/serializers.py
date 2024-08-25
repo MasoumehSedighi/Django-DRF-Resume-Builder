@@ -5,6 +5,7 @@ from rest_framework import serializers
 from resume.models import (
     Skill,
     Education,
+    Certificate,
 )
 
 
@@ -14,7 +15,7 @@ class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
         fields = ['id', 'user', 'title']
-        read_only_fields = ['user']
+        read_only_fields = ['id', 'user']
 
 
 class EducationSerializer(serializers.ModelSerializer):
@@ -25,7 +26,7 @@ class EducationSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'user', 'institution', 'degree', 'start_date', 'end_date'
         ]
-        read_only_fields = ['user']
+        read_only_fields = ['id', 'user']
 
     def validate(self, data):
         """
@@ -40,3 +41,12 @@ class EducationSerializer(serializers.ModelSerializer):
             )
 
         return data
+
+
+class CertificateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Certificate
+        fields = [
+            'id', 'user', 'title', 'issuing_organization', 'issue_date'
+        ]
+        read_only_fields = ['id', 'user']

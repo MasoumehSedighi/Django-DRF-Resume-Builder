@@ -26,8 +26,6 @@ class Skill(BaseModel):
         on_delete=models.CASCADE
     )
     title = models.CharField(max_length=255)
-    created_time = models.DateTimeField(auto_now_add=True)
-    modified_time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.user} - {self.title}'
@@ -56,3 +54,23 @@ class Education(BaseModel):
     def clean(self):
         if self.end_date and self.start_date > self.end_date:
             raise ValidationError("start date must be before the end date")
+
+
+class Certificate(BaseModel):
+    """
+    A model representing a user's certificates.
+    """
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='certificates',
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(max_length=255)
+    issuing_organization = models.CharField(max_length=255)
+    issue_date = models.DateField()
+
+    class Meta:
+        ordering = ('-issue_date',)
+
+    def __str__(self):
+        return f'{self.user} - {self.title}'

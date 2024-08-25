@@ -49,3 +49,13 @@ class ResumeModelsTests(TestCase):
         )
         with self.assertRaises(ValidationError):
             education.clean()
+
+    def test_create_certificate(self):
+        certificate = models.Certificate.objects.create(
+            user=self.user,
+            title='Python Developer',
+            issuing_organization='Google',
+            issue_date='2024-04-12'
+        )
+        self.assertEqual(str(certificate),
+                         f'{certificate.user} - {certificate.title}')
