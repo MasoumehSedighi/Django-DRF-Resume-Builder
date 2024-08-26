@@ -4,6 +4,16 @@
 <img loading="lazy" style="width:400px" src="resume-img.jpg">
 </div>
 
+# Features
+- Custom User Model
+- Profile model
+- Signal Profile
+- Django RestFramework
+- Token Authentication
+- API Docs
+- Docker
+- Flake8
+- Tests
 
 # Setup Project
 1. You'll need to have [Docker installed](https://docs.docker.com/get-docker/).
