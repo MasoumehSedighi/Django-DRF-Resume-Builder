@@ -1,13 +1,11 @@
 # Resume-Builder
 <div align="center">
-<img loading="lazy" style="width:700px" src=".[/docs/hamravesh-banner.png](https://static.vecteezy.com/system/resources/previews/004/619/996/non_2x/online-job-application-color-icon-job-search-website-online-resume-builder-cv-maker-recruitment-website-isolated-illustration-vector.jpg)">
+ <h3>A resume builder application using Django REST Framework and Token Authentication</h3>
+<img loading="lazy" style="width:400px" src="resume-img.jpg">
 </div>
 
 
-A resume builder web application using Django REST Framework
-
-
-# usage
+# Setup Project
 1. You'll need to have [Docker installed](https://docs.docker.com/get-docker/).
 
 2. Clone this repo anywhere you want and move into the directory:
