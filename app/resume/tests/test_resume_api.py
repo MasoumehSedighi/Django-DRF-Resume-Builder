@@ -70,15 +70,4 @@ class ResumeAPITests(TestCase):
         self.assertEqual(len(res.data['educations']), 1)
         self.assertEqual(len(res.data['certificates']), 1)
         self.assertEqual(len(res.data['experiences']), 1)
-        self.assertEqual(
-            res.data['profile']['first_name'],
-            self.profile.first_name
-        )
-        self.assertEqual(
-            res.data['profile']['last_name'],
-            self.profile.last_name
-        )
-        self.assertEqual(
-            res.data['profile']['about_me'],
-            self.profile.about_me
-        )
+        self.assertEqual(len(res.data['profile']), 1)

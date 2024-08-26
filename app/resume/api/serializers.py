@@ -99,7 +99,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
 class ResumeSerializer(serializers.ModelSerializer):
     """Serializer for all Resume"""
 
-    profile = ProfileSerializer()
+    profile = ProfileSerializer(many=True)
     skills = SkillSerializer(many=True)
     educations = EducationSerializer(many=True)
     certificates = CertificateSerializer(many=True)
