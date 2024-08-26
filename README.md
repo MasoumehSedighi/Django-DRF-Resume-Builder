@@ -32,11 +32,11 @@ docker compose up
 5. Visit <http://localhost:8000> in your favorite browser.
 6. Run the following command to create a superuser with admin priviledges:
  ```bash
-docker-compose run --rm app sh -c "python manage.py createsuperuser" 
+docker compose run --rm app sh -c "python manage.py createsuperuser" 
 ```
 7. Run the tests using the following command:
  ```bash
- docker-compose run --rm app sh -c "python manage.py test"
+ docker compose run --rm app sh -c "python manage.py test"
 ```
 # API document
  in order to use the api in document format you can simply head to this url
