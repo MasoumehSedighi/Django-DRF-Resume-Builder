@@ -28,10 +28,19 @@ docker-compose run --rm app sh -c "python manage.py createsuperuser"
  ```bash
  docker-compose run --rm app sh -c "python manage.py test"
 ```
-# API document usage
- open your browser with these URLs:
+# API document
+ in order to use the api in document format you can simply head to this url
+ 
  - http://localhost:8000/docs/
+
+   ![image](https://github.com/user-attachments/assets/0ed2df34-6db8-414a-94e7-5e812b7f0091)
+
+  or if you prefer redoc you can use :
+  
  - http://localhost:8000/redoc/
+
+![image](https://github.com/user-attachments/assets/75201502-2c38-4593-afc5-8e748b6893ba)
+
 
 # Bugs
 Feel free to let me know if something needs to be fixed. or even any features seems to be needed in this repo.
