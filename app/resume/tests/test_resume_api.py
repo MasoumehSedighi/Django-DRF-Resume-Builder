@@ -25,7 +25,7 @@ class ResumeAPITests(TestCase):
 
     def setUp(self):
         self.client = APIClient()
-        self.url = reverse('resume:resume-detail', args=[1])
+        self.url = reverse('resume:resume-retrieve')
         self.user = create_user()
         self.profile = Profile.objects.get(user=self.user)
         self.skill = Skill.objects.create(user=self.user, title='Python')
