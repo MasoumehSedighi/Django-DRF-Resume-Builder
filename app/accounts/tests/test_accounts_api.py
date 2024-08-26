@@ -156,7 +156,8 @@ class ProfileAPITests(TestCase):
             'email': self.user.email,
             'first_name': None,
             'last_name': None,
-            'about_me': None
+            'phone': None,
+            'about_me': None,
         })
 
     def test_update_profile(self):
@@ -166,6 +167,7 @@ class ProfileAPITests(TestCase):
         payload = {
             'first_name': 'test',
             'last_name': 'last_test',
+            'phone': '433222111',
             'about_me': 'This is my profile'
         }
         profile = Profile.objects.get(user=self.user)
@@ -175,3 +177,4 @@ class ProfileAPITests(TestCase):
         self.assertEqual(profile.first_name, payload['first_name'])
         self.assertEqual(profile.last_name, payload['last_name'])
         self.assertEqual(profile.about_me, payload['about_me'])
+        self.assertEqual(profile.phone, payload['phone'])

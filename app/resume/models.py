@@ -74,3 +74,29 @@ class Certificate(BaseModel):
 
     def __str__(self):
         return f'{self.user} - {self.title}'
+
+
+class Experience(BaseModel):
+    """
+    A model representing a user's experiences.
+    """
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='experiences',
+        on_delete=models.CASCADE
+    )
+    company = models.CharField(max_length=255)
+    position = models.CharField(max_length=255)
+    description = models.TextField()
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+
+    class Meta:
+        ordering = ('-start_date',)
+
+    def __str__(self):
+        return f"{self.user} - {self.company}"
+
+    def clean(self):
+        if self.end_date and self.start_date > self.end_date:
+            raise ValidationError("Start date must be before the end date")

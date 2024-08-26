@@ -59,3 +59,27 @@ class ResumeModelsTests(TestCase):
         )
         self.assertEqual(str(certificate),
                          f'{certificate.user} - {certificate.title}')
+
+    def test_create_experience(self):
+        experience = models.Experience.objects.create(
+            user=self.user,
+            company='Tech Group',
+            position='Software Engineer',
+            description='Worked on developing applications.',
+            start_date='2022-04-12',
+            end_date='2023-05-06'
+        )
+        self.assertEqual(str(experience),
+                         f'{experience.user} - {experience.company}')
+
+    def test_experience_clean_method_invalid(self):
+        experience = models.Experience.objects.create(
+            user=self.user,
+            company='Tech Group',
+            position='Software Engineer',
+            description='Worked on developing applications.',
+            start_date='2023-04-12',
+            end_date='2022-05-06'
+        )
+        with self.assertRaises(ValidationError):
+            experience.clean()

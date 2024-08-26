@@ -61,6 +61,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     about_me = models.TextField(null=True, blank=True)
+    phone = models.CharField(max_length=12, null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
